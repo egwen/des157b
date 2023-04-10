@@ -3,9 +3,10 @@
 }
 
 body {
-    background-color: #333;
-    color: rgb(235, 235, 235);
+    background-color: #FFF9ED;
+    color: #9A7655;
     transition: all 2s;
+    font-family: 'Eczar', serif;
 }
 
 body.switch {
@@ -50,17 +51,76 @@ main {
     display: flex;
     justify-content: space-evenly;
     margin: 1em auto;
+    max-width: 800px;
 }
 
 main section {
-    width: 25%;
+    width: 20%;
     border: 1px rgb(235, 235, 235) dashed;
-    margin: 0 .25em;
-    padding: 1em;
+    margin: 0.25em;
+    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+main section:first-of-type {
+    /* margin-left: 20px; */
 }
 
 a {
     text-decoration: none;
+}
+
+section nav, #projects nav {
+    overflow: hidden;
+    margin-bottom: 1em;
+}
+
+section nav ol, section nav ul {
+    transform: translateY(-350px);
+    transition: transform 0.75s ease-in;
+}
+
+section h3:hover + nav ol, section h3:hover + nav ul,
+section nav ol:hover, section nav ul:hover,
+#projects h3:hover + nav ol, #projects ol:hover {
+    transform: translateY(-3px);
+}
+ 
+h3, ol, ul {
+   margin: 0;
+   z-index: 2;
+}
+
+h3 {
+    border: solid 3px #47280B;
+    border-radius: 3px;
+    width: 160px;
+    height: 60px;
+    text-align: center;
+    padding-top: 10px;
+}
+
+ /* {
+    overflow: hidden;
+} */
+
+#projects ol {
+    transform: translateY(-150px);
+    transition: transform 0.5s ease-in;
+}
+
+#toolkit + nav {
+    margin-top: 30px;
+}
+
+#projects nav{
+    max-height: 130px;
+}
+#toolkit {
+    position: absolute;
+    top: 175px;
 }
 
 ol,
@@ -68,17 +128,20 @@ ul {
     list-style-type: none;
     margin-left: 0;
     padding-left: 0;
+    height: fit-content;
+    background-color: #FFF9ED;
+    border: 3px solid #47280B;
 }
 
 section li {
-    padding-left: 1.2em;
+    /* padding-left: 1.2em; */
 }
 
 section a {
     line-height: 1.1em;
     display: inline-block;
     padding: .5em;
-    color: orange;
+    color: #47280B;
 }
 
 section a:hover {
@@ -93,6 +156,11 @@ section.switch a {
 section.switch a:hover {
     background-color: #333;
     color: rgb(235, 235, 235);
+}
+
+#desk {
+    position: absolute;
+    z-index: -1;
 }
 
 button {
@@ -119,3 +187,4 @@ button.switch:hover {
     background-color: #333;
     color: rgb(235, 235, 235)
 }
+

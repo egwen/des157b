@@ -7,33 +7,61 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@500&display=swap" rel="stylesheet">
+
     <link href="styles.css" rel="stylesheet" />
     <script src="script.js" defer></script>
 </head>
 
 <body>
-
     <div id="container">
         <header>
-
             <h1>
                 Emily Wen
             </h1>
 
-            <h2>DES 157B - Interactive Media III - Spring 2023
-            </h2>
+            <h2>DES 157B - Interactive Media III - Spring 2023</h2>
 
             <div id="banner">
                 <h3>This is my banner!</h3>
             </div>
-
         </header>
 
         <main>
-
+            <svg id="desk" width="958" height="308" viewBox="0 0 958 308" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="30.5" y="1.5" width="897" height="15" rx="1.5" stroke="#9A7655" stroke-width="3"/>
+                <path d="M83 15V262C83 263.657 84.3431 265 86 265H280C281.657 265 283 263.657 283 262V98.5" stroke="#9A7655" stroke-width="3"/>
+                <g opacity="0.95">
+                <mask id="path-3-inside-1_10_3" fill="white">
+                    <path d="M282 260C282 261.105 282.895 262 284 262H675C676.105 262 677 261.105 677 260V99C677 97.8954 676.105 97 675 97H284C282.895 97 282 97.8954 282 99V260Z"/>
+                </mask>
+                <path d="M282 262H677H282ZM677 99C677 96.2386 674.761 94 672 94H287C284.239 94 282 96.2386 282 99V100C282 100 282.895 100 284 100H675C676.105 100 677 100 677 100V99ZM282 97V262V97ZM677 262V97V262Z" fill="#9A7655" mask="url(#path-3-inside-1_10_3)"/>
+                </g>
+                <path d="M166.977 265.5H189.023C190.019 265.5 190.739 266.454 190.465 267.412L182.179 296.412C181.995 297.056 181.407 297.5 180.737 297.5H175.263C174.593 297.5 174.005 297.056 173.821 296.412L165.535 267.412C165.261 266.454 165.981 265.5 166.977 265.5Z" stroke="#9A7655" stroke-width="3"/>
+                <path d="M754.977 265.5H777.023C778.019 265.5 778.739 266.454 778.465 267.412L770.179 296.412C769.995 297.056 769.407 297.5 768.737 297.5H763.263C762.593 297.5 762.005 297.056 761.821 296.412L753.535 267.412C753.261 266.454 753.981 265.5 754.977 265.5Z" stroke="#9A7655" stroke-width="3"/>
+                <rect x="690.5" y="107.5" width="172" height="137" rx="1.5" stroke="#9A7655" stroke-width="3"/>
+                <g filter="url(#filter0_d_10_3)">
+                <line x1="4" y1="297.575" x2="954" y2="297.575" stroke="#9A7655" stroke-width="3"/>
+                </g>
+                <path d="M675.477 99V262C675.477 263.657 676.82 265 678.477 265H872.477C874.134 265 875.477 263.657 875.477 262V15" stroke="#9A7655" stroke-width="3"/>
+                <defs>
+                <filter id="filter0_d_10_3" x="0" y="296.075" width="958" height="11" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                <feOffset dy="4"/>
+                <feGaussianBlur stdDeviation="2"/>
+                <feComposite in2="hardAlpha" operator="out"/>
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_10_3"/>
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_10_3" result="shape"/>
+                </filter>
+                </defs>
+            </svg>
             <section id="projects">
 
-                <h3>ministudios</h3>
+                <h3 id="ministudios">ministudios</h3>
                 <nav>
                     <ol>
                         <li><a href="#">blockbuster video</a></li>
@@ -41,7 +69,7 @@
                         <li><a href="#">library liberty</a></li>
                     </ol>
                 </nav>
-                <h3>toolkit</h3>
+                <h3 id="toolkit">toolkit</h3>
                 <nav>
                     <ol>
                         <li><a href="#">touch events</a></li>
@@ -49,7 +77,6 @@
                         <li><a href="#">arrow functions</a></li>
                     </ol>
                 </nav>
-
             </section>
 
             <section id="research">
