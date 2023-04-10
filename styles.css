@@ -25,7 +25,11 @@ body.switch {
 }
 
 header {
-    margin: 0 auto 2em auto;
+    margin: 0 auto 1em auto;
+}
+
+h1, h2 {
+    margin: 0;
 }
 
 #banner {
@@ -50,78 +54,112 @@ header {
 main {
     display: flex;
     justify-content: space-evenly;
+    gap: 8px;
     margin: 1em auto;
     max-width: 800px;
 }
 
 main section {
     width: 20%;
-    border: 1px rgb(235, 235, 235) dashed;
+    /* border: 1px rgb(235, 235, 235) dashed; */
     margin: 0.25em;
     padding: 1em 0;
     display: flex;
     flex-direction: column;
+    gap: 100px;
     position: relative;
 }
 
 main section:first-of-type {
-    /* margin-left: 20px; */
+    margin-left: 6px;
 }
 
 a {
     text-decoration: none;
 }
 
-section nav, #projects nav {
-    overflow: hidden;
-    margin-bottom: 1em;
-}
-
-section nav ol, section nav ul {
-    transform: translateY(-350px);
-    transition: transform 0.75s ease-in;
-}
-
-section h3:hover + nav ol, section h3:hover + nav ul,
-section nav ol:hover, section nav ul:hover,
-#projects h3:hover + nav ol, #projects ol:hover {
-    transform: translateY(-3px);
-}
- 
-h3, ol, ul {
-   margin: 0;
-   z-index: 2;
-}
-
-h3 {
+section .drawer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:flex-start;
     border: solid 3px #47280B;
     border-radius: 3px;
     width: 160px;
     height: 60px;
-    text-align: center;
-    padding-top: 10px;
+    padding-top: 5px;
 }
 
- /* {
-    overflow: hidden;
-} */
+section .handle {
+    width: 50px;
+    height: 10px;
+    border: solid 3px #47280B;
+    border-radius: 3px;
+    background: linear-gradient(to right, #47280B 50%, #FFF9ED 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all 0.5s ease-in-out;
+}
 
-#projects ol {
-    transform: translateY(-150px);
+.drawer:hover .handle {
+    background-color: #47280B;
+    background-position: left bottom;
+}
+
+section nav, #projects nav {
+    overflow: hidden;
+    margin-bottom: 1em;
+    position: absolute;
+    bottom: 50px;
+    width: 150px;
+}
+
+section nav ol, section nav ul {
+    position:relative;
+    transform: translateY(350px);
+    transition: transform 0.65s ease-in;
+}
+
+#projects .drawer nav ol, #projects .drawer ol {
+    transform: translateY(150px);
     transition: transform 0.5s ease-in;
 }
 
-#toolkit + nav {
-    margin-top: 30px;
+/* section h3:hover + nav ol, section h3:hover + nav ul,
+section nav ol:hover, section nav ul:hover,
+#projects h3:hover + nav ol, #projects ol:hover {
+    transform: translateY(0px);
+    z-index: 2;
+}
+  */
+
+.drawer:hover nav ol, .drawer:hover nav ul,
+.drawer ol:hover, .drawer ul:hover,
+#projects .drawer:hover nav ol, #projects .drawer:hover ul {
+    transform: translateY(0px);
+    z-index: 2;
+}
+
+
+
+h3, ol, ul {
+   margin: 0;
+   z-index: 1;
+}
+
+h3 {
+    text-align: center;
 }
 
 #projects nav{
-    max-height: 130px;
+    max-height: 120px;
 }
-#toolkit {
-    position: absolute;
-    top: 175px;
+
+#projects nav:last-of-type {
+    bottom: 50px;
 }
+
 
 ol,
 ul {
@@ -131,10 +169,6 @@ ul {
     height: fit-content;
     background-color: #FFF9ED;
     border: 3px solid #47280B;
-}
-
-section li {
-    /* padding-left: 1.2em; */
 }
 
 section a {
@@ -160,6 +194,7 @@ section.switch a:hover {
 
 #desk {
     position: absolute;
+    bottom: -37px;
     z-index: -1;
 }
 
