@@ -66,10 +66,10 @@ h1, h2 {
 }
 
 
-img {
+/* img {
     filter: saturate(90%);
-}
-.switch img{
+} */
+.switch img:last-of-type {
     filter: grayscale(10%) brightness(70%);
     transition: filter 0.5s ease;
 }
@@ -88,14 +88,29 @@ img {
     position: absolute;
     bottom: -22px;
 }
+#books {
+    right: 150px;
+    bottom: 73px;
+}
+#books a img:last-of-type {
+    opacity: 0;
+}
+#books:hover a img:last-of-type {
+    opacity: 100%;
+}
 
 #plant {
     bottom: 18px;
     right: 185px;
 }
 
-#books {
-    right: 50px;
+#books a{
+    position: relative;
+    /* right: 50px; */
+}
+#books img {
+    position: absolute;
+    transition: opacity 0.3s ease-in;
 }
 
 #headphones {
@@ -258,11 +273,12 @@ ul {
     height: fit-content;
     background-color: #FFF9ED;
     border: 3px solid #47280B;
+    border-radius: 3px;
 }
 
 .switch ol, .switch ul {
     background-color: #666;
-    border: 3px solid #FFF9ED;
+    border: 3px solid #e6e6e6;
 }
 
 
@@ -375,10 +391,8 @@ label#toggle:hover {
     transform: translateX(26px);
   }
   
-  
   /* Footer Styling */
   footer {
-    position: aboslute;
     bottom: 0px;
     display: flex;
     justify-content: center;

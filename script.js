@@ -8,14 +8,27 @@
     const windowSvgElements = document.querySelectorAll('#banner svg *');
     const deskSvgElements = document.querySelectorAll('#desk *');
 
+    // DES157A items
+    const books = document.querySelector('#books img');
+
     let mode = 'light';
 
     window.addEventListener('load', () => {
         console.log(button.checked);
         if (button.checked) {
             mode = 'dark';
+            switchMode();
         }
-        switchMode();
+
+        books.addEventListener('mouseover', () => {
+            console.log("BOOKS");
+            books.src = 'images/books.png';
+        });
+        books.addEventListener('mouseout', () => {
+            console.log(mode);
+            books.src = `images/books-outline-${mode}.png`;
+        });
+
     });
 
 
@@ -34,6 +47,8 @@
     })
 
     function switchMode() {
+        books.src = `images/books-outline-${mode}.png`;
+
         if (mode === 'dark') {
             body.className = 'switch';
             banner.className = 'switch';
