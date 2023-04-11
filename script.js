@@ -8,17 +8,32 @@
     const windowSvgElements = document.querySelectorAll('#banner svg *');
     const deskSvgElements = document.querySelectorAll('#desk *');
 
+    let mode = 'light';
 
-    console.log(deskSvgElements);
-    let mode = 'dark';
+    window.addEventListener('load', () => {
+        console.log(button.checked);
+        if (button.checked) {
+            mode = 'dark';
+        }
+        switchMode();
+    });
+
 
     let colors = {
         light: '#9A7655',
-        dark: '#C1AA95'
+        dark: '#A4A4A4'
     }
 
     button.addEventListener('click', function() {
-        console.log("CLICK");
+        console.log(button.checked);
+        if (button.checked) {
+            mode = 'dark';
+        }
+
+        switchMode();
+    })
+
+    function switchMode() {
         if (mode === 'dark') {
             body.className = 'switch';
             banner.className = 'switch';
@@ -56,5 +71,5 @@
             });
             mode = 'dark'
         }
-    })
+    }
 })()

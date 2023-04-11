@@ -7,11 +7,12 @@ body {
     color: #9A7655;
     transition: all 2s;
     font-family: 'Eczar', serif;
+    max-height: 750px;
 }
 
 body.switch {
-    background-color: #665343;
-    color: #E3D4C5;
+    background-color: #666666;
+    color: #E6E6E6;
 }
 
 #container {
@@ -21,11 +22,13 @@ body.switch {
     /* make sure the columns don't get too small and text stays readable */
     min-width: 900px;
     margin: 1em auto;
-    padding-top: 2em;
+    padding-top: 2%;
+    /* max-height: 650px; */
 }
 
+/* Header styling */
 header {
-    margin: 0 auto 6% auto;
+    margin: 0 auto 0 auto;
     max-width: 800px;
     position: relative;
 }
@@ -53,13 +56,60 @@ h1, h2 {
     transition: all 2s;
 }
 
+/* desktop items */
+#desktop {
+    margin: 0 auto 0 auto;
+
+    width: 800px;
+    height: 60px;
+    position: relative;
+}
+
+.switch img{
+    filter: grayscale(20%) brightness(60%);
+    transition: filter 0.5s ease;
+}
+
+#headphones img{
+    height: 130px;
+}
+#plant img {
+    height: 100px;
+}
+#climbing img {
+    height: 100px;
+}
+
+#headphones, #plant {
+    position: absolute;
+    bottom: -22px;
+}
+
+#headphones {
+    left: 100px;
+}
+
+#plant {
+    right: 0px;
+}
+
+#climbing {
+    position: absolute;
+    bottom: 3px;
+    left: -18px;
+}
+
+
+
+/* Main body styling */
 main {
-    /* position: relative; */
+    position: relative;
     display: flex;
     justify-content: space-evenly;
     gap: 8px;
     margin: 1em auto;
     max-width: 800px;
+    height: 308px;
     /* bottom: 0px; */
 }
 
@@ -67,7 +117,7 @@ main section {
     width: 20%;
     /* border: 1px rgb(235, 235, 235) dashed; */
     margin: 0.25em;
-    padding: 1em 0;
+    padding: 1.4em 0;
     display: flex;
     flex-direction: column;
     gap: 100px;
@@ -94,14 +144,15 @@ section .drawer {
     width: 160px;
     height: 60px;
     padding-top: 5px;
+    cursor: pointer;
 }
 
 .switch section .drawer, .switch .handle {
-    border-color: #E3D4C5;
+    border-color: #E6E6E6;
 }
 
 .switch section .drawer:hover .handle {
-    background-color: #E3D4C5;
+    background-color: #E6E6E6;
 }
 
 section .handle {
@@ -121,7 +172,7 @@ section .handle {
 }
 
 .switch .drawer:hover h3 {
-    color: #E3D4C5;
+    color: #E6E6E6;
 }
 
 section nav, #projects nav {
@@ -201,13 +252,13 @@ ul {
 }
 
 .switch ol, .switch ul {
-    background-color: #665343;
+    background-color: #666;
     border: 3px solid #FFF9ED;
 }
 
 
 
-section a {
+main section li a, footer a {
     line-height: 1.1em;
     display: inline-block;
     margin: .5em;
@@ -220,26 +271,28 @@ section a {
         border-color 0.5s ease;
 }
 
-.switch section a {
+.switch main section li a, footer a{
     border-bottom: 3px solid #FFF9ED00;
+    color: #e6e6e6;
+
 }
 
-section a:hover {
+main section li a:hover, footer a:hover {
     border-color: #47280Bff;
     color: #47280B;
 }
 
-.switch section a:hover {
-    border-bottom: 3px solid #FFF9EDFF;
+.switch main section li a:hover, .switch footer a:hover {
+    border-bottom: 3px solid #e6e6e6FF;
 }
 
-section.switch a {
-    color: #FFF9ED;
+main section.switch li a, .switch footer a {
+    color: #e6e6e6;
 }
 
 #desk {
     position: absolute;
-    bottom: -37px;
+    /* bottom: -37px; */
     z-index: -1;
 }
 
@@ -288,13 +341,13 @@ label#toggle:hover {
     border-color: #47280B;
   }
   .dark + .slider {
-    border-color: #E3D4C5;
+    border-color: #e6e6e6;
   }
   .light + .slider:before {
     background-color: #47280B;
   }
   .dark + .slider:before {
-    background-color: #E3D4C5;
+    background-color: #e6e6e6;
   }
   
   .slider:before {
@@ -314,3 +367,12 @@ label#toggle:hover {
   }
   
   
+  /* Footer Styling */
+  footer {
+    position: aboslute;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px
+  }
