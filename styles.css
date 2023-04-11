@@ -10,8 +10,8 @@ body {
 }
 
 body.switch {
-    background-color: rgb(235, 235, 235);
-    color: #333;
+    background-color: #665343;
+    color: #E3D4C5;
 }
 
 #container {
@@ -27,6 +27,7 @@ body.switch {
 header {
     margin: 0 auto 6% auto;
     max-width: 800px;
+    position: relative;
 }
 
 h1, h2 {
@@ -48,7 +49,6 @@ h1, h2 {
 }
 
 #banner.switch {
-    background-color: #333;
     color: rgb(235, 235, 235);
     transition: all 2s;
 }
@@ -89,11 +89,19 @@ section .drawer {
     align-items: center;
     justify-content:flex-start;
     border: solid 3px #47280B;
-    background-color: #FFF9ED;
+    /* background-color: #FFF9ED; */
     border-radius: 3px;
     width: 160px;
     height: 60px;
     padding-top: 5px;
+}
+
+.switch section .drawer, .switch .handle {
+    border-color: #E3D4C5;
+}
+
+.switch section .drawer:hover .handle {
+    background-color: #E3D4C5;
 }
 
 section .handle {
@@ -101,19 +109,19 @@ section .handle {
     height: 10px;
     border: solid 3px #47280B;
     border-radius: 3px;
-    /* background: linear-gradient(to right, #47280B 50%, #FFF9ED 50%); */
-    /* background-size: 200% 100%; */
-    /* background-position: right bottom; */
     transition: all 0.5s ease-in-out;
 }
 
 .drawer:hover .handle {
     background-color: #47280B;
-    /* background-position: left bottom; */
 }
 
 .drawer:hover h3 {
     color: #47280B;
+}
+
+.switch .drawer:hover h3 {
+    color: #E3D4C5;
 }
 
 section nav, #projects nav {
@@ -192,6 +200,13 @@ ul {
     border: 3px solid #47280B;
 }
 
+.switch ol, .switch ul {
+    background-color: #665343;
+    border: 3px solid #FFF9ED;
+}
+
+
+
 section a {
     line-height: 1.1em;
     display: inline-block;
@@ -205,18 +220,21 @@ section a {
         border-color 0.5s ease;
 }
 
+.switch section a {
+    border-bottom: 3px solid #FFF9ED00;
+}
+
 section a:hover {
     border-color: #47280Bff;
     color: #47280B;
 }
 
-section.switch a {
-    color: #333;
+.switch section a:hover {
+    border-bottom: 3px solid #FFF9EDFF;
 }
 
-section.switch a:hover {
-    background-color: #333;
-    color: rgb(235, 235, 235);
+section.switch a {
+    color: #FFF9ED;
 }
 
 #desk {
@@ -225,28 +243,74 @@ section.switch a:hover {
     z-index: -1;
 }
 
-button {
+label#toggle {
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: 40px;
     padding: 12px;
-    background-color: orange;
-    color: #333;
-    border: 1px solid transparent;
 }
 
-button:hover {
-    background-color: coral;
+label#toggle:hover {
     cursor: pointer;
 }
 
-button.switch {
-    background-color: rgb(235, 235, 235);
-    border-color: #333;
-}
+#toggle {
+    position: relative;
+    width: 62px;
+    height: 36px;
+  }
+  
+  /* Hide default HTML checkbox */
+  #toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: .4s;
+    border: #47280B 3px solid;
+    background: no-repeat center/40px;
+    background-image: url(images/toggleBtn.png);
+    background-position: 4px 0px;
+    border-radius: 34px;
+    background-size: 95%;
+  }
 
-button.switch:hover {
-    background-color: #333;
-    color: rgb(235, 235, 235)
-}
-
+  .light + .slider {
+    border-color: #47280B;
+  }
+  .dark + .slider {
+    border-color: #E3D4C5;
+  }
+  .light + .slider:before {
+    background-color: #47280B;
+  }
+  .dark + .slider:before {
+    background-color: #E3D4C5;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 2.1px;
+    bottom: 2.15px;
+    background-color: #47280B;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  
