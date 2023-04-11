@@ -42,7 +42,7 @@ h1, h2 {
     position: relative;
     display: flex;
     width: 800px;
-    height: 250px;
+    height: 255px;
     margin: auto;
     /* background-color: rgb(235, 235, 235); */
     color: #333;
@@ -65,8 +65,12 @@ h1, h2 {
     position: relative;
 }
 
+
+img {
+    filter: saturate(90%);
+}
 .switch img{
-    filter: grayscale(20%) brightness(60%);
+    filter: grayscale(10%) brightness(70%);
     transition: filter 0.5s ease;
 }
 
@@ -76,21 +80,26 @@ h1, h2 {
 #plant img {
     height: 100px;
 }
-#climbing img {
-    height: 100px;
+#climbing img, #books img {
+    height: 90px;
 }
 
-#headphones, #plant {
+#headphones, #plant, #books {
     position: absolute;
     bottom: -22px;
 }
 
-#headphones {
-    left: 100px;
+#plant {
+    bottom: 18px;
+    right: 185px;
 }
 
-#plant {
-    right: 0px;
+#books {
+    right: 50px;
+}
+
+#headphones {
+    left: 100px;
 }
 
 #climbing {
@@ -271,7 +280,7 @@ main section li a, footer a {
         border-color 0.5s ease;
 }
 
-.switch main section li a, footer a{
+.switch main section li a, .switch footer a{
     border-bottom: 3px solid #FFF9ED00;
     color: #e6e6e6;
 
