@@ -25,20 +25,22 @@ body.switch {
 }
 
 header {
-    margin: 0 auto 1em auto;
+    margin: 0 auto 6% auto;
+    max-width: 800px;
 }
 
 h1, h2 {
     margin: 0;
+    margin-left: 40px;
 }
 
 #banner {
     position: relative;
     display: flex;
-    width: 1100px;
+    width: 800px;
     height: 250px;
     margin: auto;
-    background-color: rgb(235, 235, 235);
+    /* background-color: rgb(235, 235, 235); */
     color: #333;
     overflow: hidden;
     display: grid;
@@ -52,11 +54,13 @@ h1, h2 {
 }
 
 main {
+    /* position: relative; */
     display: flex;
     justify-content: space-evenly;
     gap: 8px;
     margin: 1em auto;
     max-width: 800px;
+    /* bottom: 0px; */
 }
 
 main section {
@@ -85,6 +89,7 @@ section .drawer {
     align-items: center;
     justify-content:flex-start;
     border: solid 3px #47280B;
+    background-color: #FFF9ED;
     border-radius: 3px;
     width: 160px;
     height: 60px;
@@ -96,49 +101,56 @@ section .handle {
     height: 10px;
     border: solid 3px #47280B;
     border-radius: 3px;
-    background: linear-gradient(to right, #47280B 50%, #FFF9ED 50%);
-    background-size: 200% 100%;
-    background-position: right bottom;
+    /* background: linear-gradient(to right, #47280B 50%, #FFF9ED 50%); */
+    /* background-size: 200% 100%; */
+    /* background-position: right bottom; */
     transition: all 0.5s ease-in-out;
 }
 
 .drawer:hover .handle {
     background-color: #47280B;
-    background-position: left bottom;
+    /* background-position: left bottom; */
+}
+
+.drawer:hover h3 {
+    color: #47280B;
 }
 
 section nav, #projects nav {
     overflow: hidden;
-    margin-bottom: 1em;
     position: absolute;
-    bottom: 50px;
+    bottom: 58px;
     width: 150px;
+    pointer-events: none;
 }
 
 section nav ol, section nav ul {
-    position:relative;
-    transform: translateY(350px);
+    position: relative;
+    min-height: 80px;
+    transform: translateY(375px);
     transition: transform 0.65s ease-in;
 }
 
 #projects .drawer nav ol, #projects .drawer ol {
     transform: translateY(150px);
-    transition: transform 0.5s ease-in;
+    transition: transform 0.4s ease-in;
 }
 
-/* section h3:hover + nav ol, section h3:hover + nav ul,
-section nav ol:hover, section nav ul:hover,
-#projects h3:hover + nav ol, #projects ol:hover {
-    transform: translateY(0px);
-    z-index: 2;
-}
-  */
 
 .drawer:hover nav ol, .drawer:hover nav ul,
 .drawer ol:hover, .drawer ul:hover,
 #projects .drawer:hover nav ol, #projects .drawer:hover ul {
     transform: translateY(0px);
     z-index: 2;
+}
+
+.drawer:hover nav {
+    padding-bottom: 10px;
+    pointer-events: all;
+}
+
+#projects .drawer:hover nav {
+    padding-bottom: 15px;
 }
 
 
@@ -153,13 +165,22 @@ h3 {
 }
 
 #projects nav{
-    max-height: 120px;
+    max-height: 136px;
+    bottom: 56px;
 }
 
-#projects nav:last-of-type {
-    bottom: 50px;
+#projects .drawer:last-of-type {
+    margin-bottom: 5px;
 }
 
+#projects .drawer:hover nav {
+    pointer-events: all;
+}
+
+
+.drawer:hover #toolkit ~ nav {
+    padding-bottom: 50px;
+}
 
 ol,
 ul {
@@ -174,13 +195,19 @@ ul {
 section a {
     line-height: 1.1em;
     display: inline-block;
-    padding: .5em;
-    color: #47280B;
+    margin: .5em;
+    margin-bottom: 5px;
+    color: #9A7655;
+    box-sizing: content-box;
+    border-bottom: 3px solid #47280b00;
+    transition: 
+        color 0.5s ease,
+        border-color 0.5s ease;
 }
 
 section a:hover {
-    background-color: orange;
-    color: #333;
+    border-color: #47280Bff;
+    color: #47280B;
 }
 
 section.switch a {
