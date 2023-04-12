@@ -19,16 +19,6 @@
             mode = 'dark';
             switchMode();
         }
-
-        books.addEventListener('mouseover', () => {
-            console.log("BOOKS");
-            books.src = 'images/books.png';
-        });
-        books.addEventListener('mouseout', () => {
-            console.log(mode);
-            books.src = `images/books-outline-${mode}.png`;
-        });
-
     });
 
 
@@ -47,7 +37,11 @@
     })
 
     function switchMode() {
+        // setTimeout(() =>{
+        //     books.src = `images/books-outline-${mode}.png`;
+        // }, 0)
         books.src = `images/books-outline-${mode}.png`;
+
 
         if (mode === 'dark') {
             body.className = 'switch';
@@ -65,7 +59,6 @@
                 if (element.id == 'desk-outline') {
                     element.setAttribute('fill', colors.dark);
                 }
-
             });
             mode = 'light';
         } else {

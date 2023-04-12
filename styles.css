@@ -23,7 +23,6 @@ body.switch {
     min-width: 900px;
     margin: 1em auto;
     padding-top: 2%;
-    /* max-height: 650px; */
 }
 
 /* Header styling */
@@ -74,6 +73,21 @@ h1, h2 {
     transition: filter 0.5s ease;
 }
 
+#headphones, #plant, #books {
+    position: absolute;
+}
+#headphones {
+    bottom: -22px;
+}
+#plant {
+    bottom: 18px;
+    right: 185px;
+}
+#books {
+    right: 150px;
+    bottom: 73px;
+}
+
 #headphones img{
     height: 130px;
 }
@@ -84,14 +98,7 @@ h1, h2 {
     height: 90px;
 }
 
-#headphones, #plant, #books {
-    position: absolute;
-    bottom: -22px;
-}
-#books {
-    right: 150px;
-    bottom: 73px;
-}
+/* Hover transparency */
 #books a img:last-of-type {
     opacity: 0;
 }
@@ -99,10 +106,7 @@ h1, h2 {
     opacity: 100%;
 }
 
-#plant {
-    bottom: 18px;
-    right: 185px;
-}
+
 
 #books a{
     position: relative;
