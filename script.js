@@ -10,6 +10,10 @@
 
     // DES157A items
     const books = document.querySelector('#books img');
+    const headphones = document.querySelector('#headphones img');
+    const climbing = document.querySelector('#climbing img');
+    const plant = document.querySelector('#plant img');
+
 
     let mode = 'light';
 
@@ -37,10 +41,14 @@
     })
 
     function switchMode() {
-        // setTimeout(() =>{
-        //     books.src = `images/books-outline-${mode}.png`;
-        // }, 0)
+   
         books.src = `images/books-outline-${mode}.png`;
+        headphones.src = `images/headphones-outline-${mode}.png`;
+        climbing.src = `images/climbing-outline-${mode}.png`;
+        plant.src = `images/plant-outline-${mode}.png`;
+
+
+
 
 
         if (mode === 'dark') {

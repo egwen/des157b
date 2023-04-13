@@ -58,35 +58,35 @@ h1, h2 {
 /* desktop items */
 #desktop {
     margin: 0 auto 0 auto;
-
     width: 800px;
     height: 60px;
     position: relative;
 }
 
-
-/* img {
-    filter: saturate(90%);
-} */
-.switch img:last-of-type {
+.switch img:last-of-type, .switch #climbing img:last-of-type {
     filter: grayscale(10%) brightness(70%);
-    transition: filter 0.5s ease;
 }
 
-#headphones, #plant, #books {
+.desktop-item {
     position: absolute;
 }
 #headphones {
-    bottom: -22px;
+    bottom: 114px;
+    left: 100px;
 }
 #plant {
-    bottom: 18px;
-    right: 185px;
+    bottom: 124px;
+    right: 250px;
 }
 #books {
     right: 150px;
-    bottom: 73px;
+    bottom: 74px;
 }
+#climbing {
+    bottom: 106px;
+    left: -19px;
+}
+
 
 #headphones img{
     height: 130px;
@@ -94,38 +94,36 @@ h1, h2 {
 #plant img {
     height: 100px;
 }
-#climbing img, #books img {
+#books img {
     height: 90px;
+}
+#climbing img {
+    height: 100px;
 }
 
 /* Hover transparency */
-#books a img:last-of-type {
+.desktop-item a img:last-of-type {
     opacity: 0;
 }
-#books:hover a img:last-of-type {
+.desktop-item:hover a img:last-of-type {
     opacity: 100%;
 }
+#climbing a img:last-of-type {
+    filter: saturate(70%);
+}
 
 
 
-#books a{
+
+
+.desktop-item a{
     position: relative;
-    /* right: 50px; */
 }
-#books img {
+.desktop-item img, .switch .desktop-item img {
     position: absolute;
-    transition: opacity 0.3s ease-in;
+    transition: opacity 0.3s ease-in, filter 0.5s ease;
 }
 
-#headphones {
-    left: 100px;
-}
-
-#climbing {
-    position: absolute;
-    bottom: 3px;
-    left: -18px;
-}
 
 
 
@@ -192,7 +190,7 @@ section .handle {
 }
 
 .drawer:hover .handle {
-    background-color: #47280B;
+    background-color: #47280b;
 }
 
 .drawer:hover h3 {
@@ -236,12 +234,6 @@ section nav ol, section nav ul {
     pointer-events: all;
 }
 
-#projects .drawer:hover nav {
-    padding-bottom: 15px;
-}
-
-
-
 h3, ol, ul {
    margin: 0;
    z-index: 1;
@@ -262,11 +254,6 @@ h3 {
 
 #projects .drawer:hover nav {
     pointer-events: all;
-}
-
-
-.drawer:hover #toolkit ~ nav {
-    padding-bottom: 50px;
 }
 
 ol,
