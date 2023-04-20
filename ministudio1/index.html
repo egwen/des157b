@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Blockbuster Video</title>
+    <!-- Normalize -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap" rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link href="styles.css" rel="stylesheet">
+
+    <!-- Script -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- <header>
+        <h1>Blockbuster video</h1>
+    </header> -->
+    <main>
+        <div id="background-video" class="hidden">
+            <video id="bg-water" muted autoplay loop playsinline>
+                <source src="media/water.webm" type="video/webm">
+                <source src="media/water.mp4" type="video/mp4">
+            </video>
+        </div>
+        <section id="poem">
+            <p id="line1" class="showing"></p>
+            <p id="line2" class="hidden"></p>
+            <p id="line3" class="hidden"></p>
+        </section>
+
+        <section id="videos" class="hidden">
+            <div id="air" class="video-wrapper">
+                <video id="air-video" muted autoplay loop playsinline>
+
+                    <source src="media/air.webm" type="video/webm">
+                    <source src="media/air.mp4" type="video/mp4">
+            
+                    <p>Your browser doesn't support HTML5 video. Here is a <a href="media/air.mp4">link to the video</a>
+                        instead.</p>
+                </video>
+            </div>
+            <div id="water" class="video-wrapper">
+                <video id="water-video" muted autoplay loop playsinline>
+
+                    <source src="media/water.webm" type="video/webm">
+                    <source src="media/water.mp4" type="video/mp4">
+            
+                    <p>Your browser doesn't support HTML5 video. Here is a <a href="media/water.mp4">link to the video</a>
+                        instead.</p>
+                </video>
+            </div>
+            
+            <div id="earth" class="video-wrapper">
+                <video id="earth-video" muted autoplay loop playsinline>
+
+                    <source src="media/earth.webm" type="video/webm">
+                    <source src="media/earth.mp4" type="video/mp4">
+            
+                    <p>Your browser doesn't support HTML5 video. Here is a <a href="media/earth.mp4">link to the video</a>
+                        instead.</p>
+                </video>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
