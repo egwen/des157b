@@ -5,7 +5,6 @@ main {
     align-items: center;
     height: 100vh;
     font-family: 'Playfair Display SC', serif, Garamond, serif;
-
 }
 
 main #videos {
@@ -15,20 +14,21 @@ main #videos {
     flex-direction: row;
     align-items: center;
     overflow: hidden;
-    box-shadow: 0px 0px 30px black;
+    /* box-shadow: 0px 0px 30px black; */
     border-radius: 15px;
+    gap: 2%;
 }   
 
 #videos .video-wrapper{
     flex-grow: 1;
     overflow: clip;
     transition: all 1s ease-in-out;
-    height: 750px;
-    width: 33vw;
+    height: 50%;
+    max-height: 750px;
     z-index: 3;
     display: flex;
     flex-wrap: nowrap;
-
+    border-radius: 30px;
 }
 #poem {
     color: white;
@@ -75,7 +75,8 @@ main #videos {
 }
 #videos .video-wrapper:hover {
     flex-grow: 4;
-    width: 400%;
+    width: 500%;
+    height: 100%;
 }
 
 .video-wrapper {
@@ -133,5 +134,5 @@ main #videos {
 }
 
 #videos, #background-video {
-    transition: opacity 1s ease-in;
+    transition: opacity 2s ease-in-out;
 }
