@@ -6,7 +6,7 @@
     backgroundVideo.playbackRate = 0.8;
     let backgroundVideoSrcs = document.querySelectorAll('#background-video video source');
     let currentVideo = 'water';
-    
+
     let videoPage = document.getElementById('videos');
     // videoPage.style.display = 'none';
     let poemPage =  document.getElementById('poem');
@@ -23,7 +23,7 @@
 
     let intervalNum = 0;
     switchBackgroundVideo(poem.videoType[line], 0.2);
-    let interval = setInterval(typeLine, 150);
+    let interval = setInterval(typeLine, 200);
 
     function typeLine() {
         intervalNum++;

@@ -124,7 +124,7 @@ main #videos {
 }
 
 .hidden {
-    visibility: hidden;
+    /* visibility: hidden; */
     opacity: 0;
 }
 
