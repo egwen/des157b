@@ -4,34 +4,48 @@
     
     let counter = 0;
     const receipts = document.querySelector('.receipts');
+    let receiptLengths = [];
+
     const welcome = document.querySelector('#welcome');
     const button = document.querySelector('button');
 
-    let receiptLengths = [];
-    setTimeout( ()=> {
-        receipts.scrollBy({
-            top: -welcome.scrollHeight, // margin + border = 22px
-            left: 0,
-            behavior: "smooth",
-        });
-        button.addEventListener('click', printReceipt);
-        // document.getElementById('indicator').className = 'on';
-    }, 2000)
+    const coffeeBtn = document.getElementById('coffee-btn');
+    coffeeBtn.addEventListener('click', makeCoffee);
+    const needle = document.getElementById('needle');
+    console.log(needle);
 
-    receipts.addEventListener('scroll', () => {
-        button.style.pointerEvents = 'none';
-        document.getElementById('indicator').className = 'off';
-        if (counter < receiptLengths.length) {
-            setTimeout( () => {
+    window.addEventListener('load', () => {
+        getData();
+
+        // Reveal title
+        document.querySelector('h1').style.transform = 'rotateX(0deg)';
+
+        // "Print" welcome receipt after 2 seconds
+        setTimeout( ()=> {
+            receipts.scrollBy({
+                top: -welcome.scrollHeight, // margin + border = 22px
+                left: 0,
+                behavior: "smooth",
+            });
+            button.addEventListener('click', printReceipt);
+        }, 2000);
+
+        // Animate the indicator button and disable button while "printing"/scrolling
+        receipts.addEventListener('scroll', () => {
+            button.style.pointerEvents = 'none';
+            document.getElementById('indicator').className = 'off';
+            if (counter < receiptLengths.length) {
+                setTimeout( () => {
+                    button.style.pointerEvents = 'auto';
+                    document.getElementById('indicator').className = 'on';
+                }, 500);
+            } else {
                 button.style.pointerEvents = 'auto';
-                document.getElementById('indicator').className = 'on';
-            }, 500);
-        } else {
-            button.style.pointerEvents = 'auto';
-            button.textContent = 'Restart';
-            button.removeEventListener('click', printReceipt);
-            button.addEventListener('click', restartList);
-        }
+                button.textContent = 'Restart';
+                button.removeEventListener('click', printReceipt);
+                button.addEventListener('click', restartList);
+            }
+        });
     });
 
     async function getData() {
@@ -60,7 +74,7 @@
         receipt.className = 'receipt';
         
         // Order Number
-        let orderNumElem = document.createElement('h1');
+        let orderNumElem = document.createElement('h2');
         orderNumElem.textContent = "#" + dataValue[0]; // Order number used as key
 
         // Order type (to-go or dine-in)
@@ -134,7 +148,54 @@
         button.addEventListener('click', printReceipt);
     }
 
-    getData();
 
+    function makeCoffee() {
+        let coffeeLight = document.getElementById('btn-light-inner');
+        coffeeLight.setAttribute('fill', '#e9dec4');
+
+        let coffeeEnds = document.querySelectorAll('#espresso circle');
+        let coffeeStreams = document.querySelectorAll('#espresso rect');
+        
+        document.getElementById('espresso').setAttribute('class', 'ready');
+
+        coffeeStreams.forEach((stream) => {
+            stream.setAttribute('height', 70);
+        });
+        coffeeEnds.forEach((stream) => {
+            stream.setAttribute('cy', parseInt(stream.getAttribute('cy')) + 70);
+            
+        });
+
+        setTimeout( () => {
+            coffeeStreams.forEach((stream) => {
+                stream.setAttribute('height', 1);
+                stream.setAttribute('y', 300);
+            });
+            // coffeeEnds.forEach((stream) => {
+            //     stream.setAttribute('cy', 300);
+            // });
+
+            setTimeout( () => {
+                // Reset positioning
+                document.getElementById('espresso').setAttribute('class', '');
+                coffeeStreams.forEach((stream) => {
+                    stream.setAttribute('height', 1);
+                    stream.setAttribute('y', 225);
+                });
+                coffeeEnds.forEach((stream) => {
+                    stream.setAttribute('cy', parseInt(stream.getAttribute('cy')) - 70);
+                });
+                coffeeLight.setAttribute('fill', '#FFF8E7');
+
+            }, 1000);
+        }, 2000);
+
+        // Spin pressure needle
+        needle.style.animation = 'spin 4s 1';
+        needle.addEventListener('animationend', () => {
+            needle.style.animation = '';
+        });
+
+    }
 
 })();

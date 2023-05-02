@@ -7,7 +7,9 @@ h1, h2, p, li, ul{
     padding: 0;
 }
 
-
+html {
+    position: relative;
+}
 
 body {
     background-color: #FFF8E7;
@@ -21,6 +23,36 @@ body {
     margin: 0 auto;
     /* overflow: hidden; */
 }
+
+h1 {
+    position: absolute;
+    top: 20%;
+    font-size: 2.3em;
+    /* word-spacing: 0.2em; */
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+    transition: transform 3s ease;
+    z-index: 2;
+}
+
+/* h1 span {
+    background-color: #fff;
+    padding: 0 5%;
+    position: absolute;
+    transform: translateX(-80px);
+    transform-origin: left bottom;
+    animation: swing 2s 2s ease-in-out alternate infinite;
+
+} */
+/* 
+@keyframes swing {
+    0% {
+        transform: translateX(-80px) rotate(0deg);
+    }
+    100% {
+        transform: translateX(-80px) rotate(90deg);
+    }
+} */
 
 main, .coffee-machine{
     display: flex;
@@ -37,6 +69,14 @@ main, .coffee-machine{
     position: relative;
 }
 
+img {
+    width: 100vw;
+    position: absolute;
+    top: calc(40% + 300px);
+    z-index: -1;
+    display: none;
+}
+
 .coffee-machine svg {
     position: absolute;
     top: 10%;
@@ -47,7 +87,20 @@ main, .coffee-machine{
 #needle {
     transform: rotate(-90deg);
     transform-origin: 240.6px 84.3px;
-    animation: spin 5s infinite;
+    /* animation: spin 5s infinite; */
+}
+
+#btn-light-inner {
+    animation: blink 1s ease-in-out alternate infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 60%;
+    }
 }
 
 @keyframes spin {
@@ -146,16 +199,17 @@ main, .coffee-machine{
 }
 
 /* Center aligned content with border */
-.receipt h1, .receipt p.timestamp {
+.receipt h2, .receipt p.timestamp {
     align-self: center;
     width: 225px;
 }
 
-.receipt h1{
+.receipt h2 {
     text-align: center;
     border-bottom: 2px rgb(117, 117, 117) dashed;
     padding-bottom: 15px;
     margin-top: 30px;
+    font-size: 2em;
 }
 
 /* 'TO-GO' paragraph */
@@ -193,11 +247,22 @@ main, .coffee-machine{
     padding-top: 15px;
 }
 
+#espresso.ready * {
+    transition: all 1s ease-in;
+}
+
+#coffee-btn {
+    cursor: pointer;
+}
+
 @media only screen and (min-width: 850px) {
     body {
         flex-direction: row;
     }
     .coffee-machine svg {
         top: 25%;    
+    }
+    img {
+        display: block;
     }
 }
