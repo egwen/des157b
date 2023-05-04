@@ -34,14 +34,10 @@
     "004": {
         "order": [{
             "quantity": 1,
-            "size": "M",
-            "title": "White Mocha",
+            "size": "S",
+            "title": "Iced Vanilla Latte",
+            "special": "Soy Milk",
             "type": "drink"
-        },
-        {
-            "quantity": 1,
-            "title": "Breakfast Burrito",
-            "type": "food"
         }],
         "timestamp": "8:18 AM 31 April 2023"
     },
