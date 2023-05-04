@@ -7,7 +7,8 @@
     let receiptLengths = [];
 
     const welcome = document.querySelector('#welcome');
-    const button = document.querySelector('button');
+    const printBtn = document.querySelector('#print-btn');
+    const undoBtn = document.querySelector('#undo-btn');
 
     const coffeeBtn = document.getElementById('coffee-btn');
     coffeeBtn.addEventListener('click', makeCoffee);
@@ -27,23 +28,28 @@
                 left: 0,
                 behavior: "smooth",
             });
-            button.addEventListener('click', printReceipt);
+            printBtn.addEventListener('click', printReceipt);
+            printBtn.style.opacity = 1;
         }, 2000);
+
+        undoBtn.addEventListener('click', undoPrint);
 
         // Animate the indicator button and disable button while "printing"/scrolling
         receipts.addEventListener('scroll', () => {
-            button.style.pointerEvents = 'none';
+            printBtn.style.pointerEvents = 'none';
             document.getElementById('indicator').className = 'off';
+
             if (counter < receiptLengths.length) {
                 setTimeout( () => {
-                    button.style.pointerEvents = 'auto';
+                    printBtn.style.pointerEvents = 'auto';
+
                     document.getElementById('indicator').className = 'on';
                 }, 500);
             } else {
-                button.style.pointerEvents = 'auto';
-                button.textContent = 'Restart';
-                button.removeEventListener('click', printReceipt);
-                button.addEventListener('click', restartList);
+                printBtn.style.pointerEvents = 'auto';
+                printBtn.textContent = 'Restart';
+                printBtn.removeEventListener('click', printReceipt);
+                printBtn.addEventListener('click', restartList);
             }
         });
     });
@@ -53,22 +59,23 @@
         const data = await orders.json();
         // Convert data to key-value pairs
         const receipts = Object.entries(data);
-        console.log(receipts);
+        console.log(receipts.length);
         generateReceiptList(receipts);
     }
 
     function generateReceiptList(data){
         // let receipts = document.querySelector('.receipts');
+        console.log(data.length)
         data.forEach( (order) => {
-            let receipt = createReceipt(order);
+            let receipt = createReceipt(order, data.length);
             receipts.append( receipt );
             receiptLengths.push(receipt.scrollHeight);
         });
         // receiptLengths.reverse();
-        console.log(receiptLengths);
+        console.log(receiptLengths.length);
     }
     
-    function createReceipt(dataValue) {
+    function createReceipt(dataValue, totalNum) {
         // Create the receipt element
         let receipt = document.createElement('article');
         receipt.className = 'receipt';
@@ -108,7 +115,12 @@
         timestampElem.className = 'timestamp'
         timestampElem.textContent = dataValue[1].timestamp;
 
-        receipt.append(orderNumElem, toGoPara, orderElem, timestampElem);
+        let counterElem = document.createElement('p');
+        counterElem.className = 'counter'
+        counterElem.textContent = `${receiptLengths.length + 1}/${totalNum}`;
+
+
+        receipt.append(orderNumElem, toGoPara, orderElem, timestampElem, counterElem);
         return receipt;
     }
 
@@ -120,13 +132,35 @@
         });
         counter++;
 
+        if (counter > 0) {
+            undoBtn.style.display = 'flex';
+        }
+
         if (counter > 0 && receipts.children) {
             receipts.children[counter-1].style.opacity = 0;
         }
         console.log(counter, receiptLengths.length);
         if (counter == receiptLengths.length) {
             document.getElementById('indicator').className = 'off';
-            document.querySelector('button').style.pointerEvents = 'none';
+            printBtn.style.pointerEvents = 'none';
+            printBtn.style.opacity = 0.5;
+            
+        }
+    }
+
+    function undoPrint() {
+        counter--;
+        if (counter >= 0 && receipts.children) {
+            receipts.children[counter].style.opacity = 1;
+        }
+        receipts.scrollBy({
+            top: receiptLengths[counter] + 22, // margin + border = 22px
+            left: 0,
+            behavior: "smooth",
+        });
+
+        if (counter == 0) {
+            undoBtn.style.display = 'none';
         }
     }
 
@@ -143,9 +177,9 @@
             left: 0,
             behavior: "smooth",
         });
-        button.textContent = 'Print Receipt';
-        button.removeEventListener('click', restartList);
-        button.addEventListener('click', printReceipt);
+        printBtn.textContent = 'Print Receipt';
+        printBtn.removeEventListener('click', restartList);
+        printBtn.addEventListener('click', printReceipt);
     }
 
 
@@ -195,7 +229,5 @@
         needle.addEventListener('animationend', () => {
             needle.style.animation = '';
         });
-
     }
-
 })();

@@ -142,9 +142,28 @@ img {
     top: 40%;
 }
 
-#indicator {
+#printer button, #indicator {
     position: absolute;
     top: 5%;
+}
+
+#undo-btn {
+    right: 42%;
+    cursor: pointer;
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#printer button {
+    background: none;
+    border: none;
+}
+
+#indicator {
     left: 5%;
     width: 20px;
     height: 20px;
@@ -159,16 +178,13 @@ img {
     background-color: #FF6262;
 }
 
-#printer button {
-    position: absolute;
-    top: 5%;
+#printer button#print-btn {
     right: 5%;
-    background: none;
-    box-shadow: none;
     border: 3px solid black;
     border-radius: 5px;
     padding: 5px;
     cursor: pointer;
+    opacity: 0.5;
 }
 
 #printer-mouth {
@@ -181,6 +197,7 @@ img {
 }
 
 .receipt {
+    position: relative;
     background-color: white;
     border: 1px rgb(117, 117, 117) solid;
     width: 250px;
@@ -247,6 +264,15 @@ img {
     border-top: 1px rgb(117, 117, 117) dashed;
     width: 95%;
     padding-top: 15px;
+}
+
+.receipt .counter {
+    padding: 0;
+    margin: 1%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 0.8em;
 }
 
 #espresso.ready * {
