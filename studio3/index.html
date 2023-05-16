@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Normalize -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Back4App -->
+    <!--/ /-------- Load Parse Library --------/ /-->
+    <script src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+
+    <!-- add the link to leaflet css here -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
+
+    <!-- link to custom css -->
+    <link href="styles.css" rel="stylesheet">
+
+    <!-- add the link to the leaflet js here -->
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+
+    <!-- link to custom js -->
+    <script src="script.js" defer></script>
+
+    <title>Library Challenge</title>
+</head>
+<body>
+    <!-- <h1>Library Challenge</h1> -->
+    <section id="intro-overlay" class="showing">
+        <article id="welcome">
+            <h1>Welcome to Aggie Guessr!</h1>
+            <h2>Test well you know UC Davis!</h2>
+            <p>You will be given a random photo taken outside on the UC Davis campus. The goal is to guess where the photo was taken as fast as possible. Your score is determined by the proximity and speed of the guess. Good luck!</p>
+
+            <button id="start" class="showing">Begin!</button>
+        </article>
+    </section>
+    <div id="map"></div>
+    <section id="result-overlay" class="hidden">
+        <div id="results">
+            <p id="distance">Distance: <span>0</span>m</p>
+            <p id="time">Time: <span>0</span> seconds</p>
+            <p id="score">+<span>0</span>points</p>
+
+            <p id="total-score">Total Score: <span>0</span></p>
+        </div>
+
+    </section>
+    <section id="timer-overlay" class="hidden">
+        <p id="timer"><span>00:00</span>s</p>
+    </section>
+    <main>
+        <section id="image" class="hidden">
+            <button id="maximize"><i class="fa-solid fa-up-right-and-down-left-from-center fa-rotate-90"></i></button>
+            <button id="minimize"><i class="fa-solid fa-down-left-and-up-right-to-center fa-rotate-90"></i></button>
+            <img class="min" id="locationImage" src="">
+            <button id="guess" class="disabled">Guess</button>
+            <button id="next" class="hidden">Next Round</button>
+
+        </section>
+    </main>
+</body>
+</html>
